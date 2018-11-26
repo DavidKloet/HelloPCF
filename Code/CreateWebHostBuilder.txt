@@ -1,0 +1,10 @@
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder()
+        .ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            config.SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true)
+                .AddEnvironmentVariables()
+                .AddCommandLine(args);
+        })
+        .UseStartup<Startup>();

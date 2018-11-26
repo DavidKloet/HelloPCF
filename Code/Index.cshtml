@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <div class="col-md-12 text-center" style="padding: 20px 0;">
+        <h1>Welkom bij de workshop Pivotal Cloud Foundry van de Gildedag 2018</h1>
+    </div>
+    <div class="col-md-12 text-center">
+        <div class="jumbotron">
+            <h2>Workshops</h2>
+            @foreach (var workshop in Model.Workshops)
+            {
+                <div> - @workshop.Name</div>
+            }
+            <hr/>
+            <form method="post" class="form-inline">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Naam..." name="name" id="name" autofocus="autofocus" />
+                    <button type="submit" class="btn btn-default" name="opslaan" value="true">Opslaan</button>
+                    <button type="submit" class="btn btn-danger" name="reset" value="true">Reset</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="images/cbs-brand.svg" style="width: 100px;" alt="CBS logo" />
+    </div>
+    <div class="col-md-6 text-center" style="vertical-align: middle;">
+        <img src="images/PivotalCloudFoundry_Logo.png" style="width: 500px; margin-top: 30px;" alt="PCF logo" />
+    </div>
+</div>
